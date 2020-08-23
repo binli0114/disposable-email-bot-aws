@@ -1,0 +1,51 @@
+{
+  "name": "disposable-email-bot-aws",
+  "version": "1.0.0",
+  "description": "disposable email bot in aws",
+  "main": "index.js",
+  "scripts": {
+    "check": "npm run lint && npm run coverage",
+    "coverage": "npm run test -- --coverage --silent",
+    "test": "jest --passWithNoTests",
+    "test:watch": "npm test -- --watch",
+    "lint": "eslint '**/*.js' --ignore-path .gitignore",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binli0114/disposable-email-bot-aws.git"
+  },
+  "author": "Bin Li",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/binli0114/disposable-email-bot-aws/issues"
+  },
+  "homepage": "https://github.com/binli0114/disposable-email-bot-aws#readme",
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run check"
+    }
+  },
+  "dependencies": {
+    "utils": "github:cloudconformity/utils#v1.2.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.7",
+    "eslint": "^7.3.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-jest": "^23.17.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-security": "^1.4.0",
+    "husky": "^4.2.5",
+    "jest": "^26.1.0",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5"
+  }
+}
