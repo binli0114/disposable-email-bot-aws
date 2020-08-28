@@ -1,4 +1,4 @@
-service: disposable-email-bot-aws
+service: disposable-email-bot
 
 plugins:
   - serverless-prune-plugin

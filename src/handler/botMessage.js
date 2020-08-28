@@ -1,6 +1,6 @@
 const { BotFrameworkAdapter } = require("botbuilder");
 const express = require("express");
-const { DisposableEmailBot } = require("../service/teamsConversationBot");
+const { DisposableEmailBot } = require("../service/disposableEmailBot");
 const app = express();
 const port = process.env.port || process.env.PORT || 3978;
 

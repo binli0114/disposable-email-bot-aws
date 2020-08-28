@@ -1,0 +1,58 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.5/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.5",
+  "version": "1.0.0",
+  "id": "e3729173-aade-4093-9ec0-0f3d5099912b",
+  "packageName": "au.net.vitech.disposableEmailBot",
+  "developer": {
+    "name": "VI TECH Pty Ltd",
+    "websiteUrl": "https://www.vitech.net.au",
+    "privacyUrl": "https://www.teams.com/privacy",
+    "termsOfUseUrl": "https://www.teams.com/termsofuser"
+  },
+  "icons": {
+    "outline": "icon-outline.png",
+    "color": "icon-color.png"
+  },
+  "name": {
+    "short": "DisposableEmailBot",
+    "full": "Disposable Email Bot"
+  },
+  "description": {
+    "short": "DisposableEmailBot",
+    "full": "Disposable Email Bot"
+  },
+  "accentColor": "#FFFFFF",
+  "bots": [
+    {
+      "botId": "e3729173-aade-4093-9ec0-0f3d5099912b",
+      "scopes": [
+        "personal",
+        "groupchat",
+        "team"
+      ],
+      "supportsFiles": false,
+      "isNotificationOnly": false,
+      "commandLists": [
+        {
+          "scopes": [
+            "personal",
+            "groupchat",
+            "team"
+          ],
+          "commands": [
+            {
+              "title": "Create an Email Address",
+              "description": "Create an new email address"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": []
+}
