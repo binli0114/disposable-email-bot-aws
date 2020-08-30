@@ -97,7 +97,7 @@ class DisposableEmailBot extends TeamsActivityHandler {
 				`You have a valid email: ${data.address} will be expired in ${data.expiredIn} minutes`
 			);
 		} else {
-			message = MessageFactory.text(data.message);
+			message = MessageFactory.text(data);
 		}
 		await context.sendActivity(message);
 	}
