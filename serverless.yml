@@ -1,0 +1,67 @@
+service: disposable-email-bot
+
+plugins:
+  - serverless-prune-plugin
+  - serverless-dynamodb-local
+  - serverless-offline
+  - serverless-iam-roles-per-function
+  - serverless-pseudo-parameters
+  - serverless-plugin-lambda-dead-letter
+
+custom:
+  prune:
+    automatic: true
+    number: 3
+  cors:
+    staging: false
+    production: false
+    default: true
+  domainName: "happyeme.com"
+  accountId: !Ref AWS::AccountId
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  accountId: 716354888588
+  region: ${opt:region}
+
+  tags:
+    Service: ${self:service}
+    Owner: binli
+    Environment: ${env:ENVIRONMENT}
+    Region: ${self:provider.region}
+    Version: ${env:SERVICE_VERSION}
+
+  stackTags:
+    Service: ${self:service}
+    Owner: binli
+    Environment: ${env:ENVIRONMENT}
+    Region: ${self:provider.region}
+    Version: ${env:SERVICE_VERSION}
+
+functions:
+
+  echoBot:
+    handler: src/handler/botMessage.handler
+    environment:
+      MicrosoftAppId: ${file(./src/service/config.js):fetchAppId}
+      MicrosoftAppPassword: ${file(./src/service/config.js):fetchAppPassword}
+    timeout: 300
+    memorySize: 256
+    iamRoleStatementsInherit: true
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - "iam:CreatePolicyVersion"
+          - "iam:DeletePolicyVersion"
+        Resource: "*"
+    events:
+      - http:
+          path: /
+          method: ANY
+          cors: true
+      - http:
+          path: /{any+}
+          method: ANY
+          cors: true

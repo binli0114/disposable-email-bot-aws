@@ -18,7 +18,7 @@
 	"rules": {
 		"camelcase": "error",
 		"curly": "error",
-		"no-console": "error",
+		"no-console": "warn",
 		"no-return-await": "error",
 		"no-shadow": ["error", { "builtinGlobals": false, "hoist": "all" }],
 		"no-var": "error",
